@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+      <% usersnames.forEach(({ username, id }) => { %>
+      <li>
+        <%= username %>
+        <form action="/<%= id %>/delete" method="POST" style="display: inline">
+          <button
+            type="submit"
+            style="
+              background-color: red;
+              color: white;
+              border: none;
+              padding: 5px 10px;
+              cursor: pointer;
+            "
+          >
+            Delete
+          </button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+    <a href="/">Back to home page</a>
+  </body>
+</html>

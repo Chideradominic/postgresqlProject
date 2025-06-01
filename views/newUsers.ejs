@@ -7,8 +7,48 @@
   </head>
   <body>
     <h1><%= title%></h1>
+    <form action="search" method="get">
+      <label for="search">Search:</label>
+      <input
+        type="text"
+        id="search"
+        name="search"
+        required
+        placeholder="Search Users"
+      />
+      <button
+        type="submit"
+        style="
+          background-color: blue;
+          color: white;
+          border: none;
+          padding: 5px 10px;
+          cursor: pointer;
+        "
+      >
+        Search
+      </button>
+    </form>
+    <ul>
+      <% usersnames.forEach(({ username, id }) => { %>
+      <li><%= username %></li>
+      <form action="/<%= id %>/delete" method="POST" style="display: inline">
+        <button
+          type="submit"
+          style="
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+          "
+        >
+          Delete
+        </button>
+      </form>
+      <% }); %>
+    </ul>
 
-    <li><%=userName.name%></li>
     <a href="/">Back to home page</a>
   </body>
 </html>
